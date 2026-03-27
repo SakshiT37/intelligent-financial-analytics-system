@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register Page</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background-color:#dfe6ee;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+.main-box{
+    background:#f5f7fb;
+    padding:40px;
+    width:600px;
+    text-align:center;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+    margin-bottom:20px;
+}
+
+.register-box{
+    background:white;
+    padding:25px;
+    width:280px;
+    margin:auto;
+    border-radius:6px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+}
+
+label{
+    display:block;
+    text-align:left;
+    margin-top:10px;
+    font-size:14px;
+}
+
+input{
+    width:100%;
+    padding:8px;
+    margin-top:5px;
+    border-radius:4px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    margin-top:20px;
+    border:none;
+    background:#2f6fb2;
+    color:white;
+    font-size:15px;
+    border-radius:4px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#245a92;
+}
+
+.login{
+    margin-top:15px;
+    font-size:13px;
+}
+
+.login a{
+    color:#2f6fb2;
+    text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="main-box">
+
+<h2>Register Page</h2>
+
+<h3>Personal Finance Tracker</h3>
+
+<div class="register-box">
+
+{% if messages %}
+    {% for message in messages %}
+        <p style="color:red;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Full Name</label>
+<input type="text" name="name" placeholder="Enter your name">
+
+<label>Email</label>
+<input type="email" name="email" placeholder="Enter email">
+
+<label>Password</label>
+<input type="password" name="password" placeholder="Create password">
+
+<label>Confirm Password</label>
+<input type="password" name="confirm_password" placeholder="Confirm password">
+
+<button type="submit">Register</button>
+
+<div class="login">
+Already have an account? <a href="{% url 'login' %}">Login</a>
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+</body>
+</html>
